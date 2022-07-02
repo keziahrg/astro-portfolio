@@ -1,1 +1,17 @@
-<div></div>
+---
+import Layout from '@/layouts/Layout.astro'
+import type { SeoProps } from '@/components/Seo.astro'
+import Hero from '@/components/Hero.astro'
+
+const seoData: SeoProps = {
+  title: 'Home | Keziah Rackley-Gale | Web developer',
+  description:
+    'Web developer with a passion for UX design from Aotearoa New Zealand. I leverage the latest technologies to create websites that look and feel awesome.',
+  image: { src: '', alt: '' },
+  url: `${import.meta.env.BASE_URL}`,
+}
+---
+
+<Layout seoData={seoData}>
+  <Hero />
+</Layout>

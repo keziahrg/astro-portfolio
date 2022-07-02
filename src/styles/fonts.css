@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'Newzald Bold';
+  src: url('./fonts/newzald-bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'National Regular';
+  src: url('./fonts/national-regular.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'National Medium';
+  src: url('./fonts/national-medium.woff2') format('woff2');
+  font-display: swap;
+}

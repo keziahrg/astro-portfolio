@@ -1,0 +1,18 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { SeoProps } from '@/components/Seo.astro'
+import Link from '@/components/Link.astro'
+
+const seoData: SeoProps = {
+  title: 'Page not found | Keziah Rackley-Gale | Web developer',
+  description: `Woops! The page you were looking for can't be found.`,
+  image: { src: '', alt: '' },
+  url: `${import.meta.env.BASE_URL}404`,
+}
+---
+
+<Layout seoData={seoData}>
+  <h1>Page not found</h1>
+  <p>Woops! The page you were looking for can't be found.</p>
+  <Link href='/' title='Return home' aria-label='Return home'>Return home</Link>
+</Layout>
