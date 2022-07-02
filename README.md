@@ -1,8 +1,12 @@
-# Keziah Rackley-Gale \| Web developer
+# Keziah Rackley-Gale
+
+## Web developer
 
 I leverage the latest technologies to create websites that look and feel awesome.
 
 ## Get started
+
+This project is built with [Astro](https://astro.build).
 
 ### 🧞 Commands
 
