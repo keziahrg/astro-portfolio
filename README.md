@@ -18,3 +18,7 @@ All commands are run from the root of the project, from a terminal:
 | yarn run dev     | Starts local dev server at localhost:3000    |
 | yarn run build   | Build your production site to ./dist/        |
 | yarn run preview | Preview your build locally, before deploying |
+
+## Forms
+
+Forms are hooked up to [Netlify Forms](https://docs.netlify.com/forms/setup/)

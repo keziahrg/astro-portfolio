@@ -1,9 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import type { SeoProps } from '@/components/Seo.astro'
-import Hero from '@/components/Hero.astro'
+import Hero from '@/components/Hero'
+import Form from '@/components/Form'
 
-const seoData: SeoProps = {
+const seoData = {
   title: 'Home | Keziah Rackley-Gale | Web developer',
   description:
     'Web developer with a passion for UX design from Aotearoa New Zealand. I leverage the latest technologies to create websites that look and feel awesome.',
@@ -14,4 +14,7 @@ const seoData: SeoProps = {
 
 <Layout seoData={seoData}>
   <Hero />
+
+  <h2>Get in touch</h2>
+  <Form client:visible />
 </Layout>
