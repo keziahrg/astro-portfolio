@@ -15,15 +15,19 @@ const Form = () => {
     setFormState('loading')
 
     const data = new FormData(e.target)
-    data.append('form-name', formName)
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: data,
     })
-      .then(() => {
-        setFormState('success')
+      .then((response) => {
+        console.log('response:', response)
+        if (response?.status === 200) {
+          setFormState('success')
+        } else {
+          throw new Error(response.statusText)
+        }
       })
       .catch((error) => {
         setFormState('error')
