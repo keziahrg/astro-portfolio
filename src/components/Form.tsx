@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, FormEvent } from 'react'
 import Button from './Button'
 import Input from './Input'
 import Textarea from './Textarea'
@@ -10,20 +10,27 @@ const formName = 'contact'
 const Form = () => {
   const [formState, setFormState] = useState<FormState>('ready')
 
-  const handleFormSubmission = (e) => {
+  const handleFormSubmission = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setFormState('loading')
 
-    const data = new FormData(e.target)
-    data.append('form-name', formName)
+    const formData = new FormData(e.target)
+    const formDataEntries = Array.from(formData, ([key, value]) => [
+      key,
+      typeof value === 'string' ? value : value.name,
+    ])
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: data,
+      body: new URLSearchParams(formDataEntries).toString(),
     })
-      .then(() => {
-        setFormState('success')
+      .then((response) => {
+        if (response.ok) {
+          setFormState('success')
+        } else {
+          throw new Error(`${response.status} ${response.statusText}`)
+        }
       })
       .catch((error) => {
         setFormState('error')
