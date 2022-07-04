@@ -14,19 +14,22 @@ const Form = () => {
     e.preventDefault()
     setFormState('loading')
 
-    const data = new FormData(e.target)
+    const formData = new FormData(e.target)
+    const formDataEntries = Array.from(formData, ([key, value]) => [
+      key,
+      typeof value === 'string' ? value : value.name,
+    ])
 
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: data,
+      body: new URLSearchParams(formDataEntries).toString(),
     })
       .then((response) => {
-        console.log('response:', response)
-        if (response?.status === 200) {
+        if (response.ok) {
           setFormState('success')
         } else {
-          throw new Error(response.statusText)
+          throw new Error(`${response.status} ${response.statusText}`)
         }
       })
       .catch((error) => {
