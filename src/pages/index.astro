@@ -1,7 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero'
-import Form from '@/components/Form'
+import ContactForm from '@/components/ContactForm'
+import Work from '@/components/Work'
+import About from '@/components/About'
 
 const seoData = {
   title: 'Home | Keziah Rackley-Gale | Web developer',
@@ -14,7 +16,7 @@ const seoData = {
 
 <Layout seoData={seoData}>
   <Hero />
-
-  <h2>Get in touch</h2>
-  <Form client:visible />
+  <Work />
+  <About />
+  <ContactForm client:visible />
 </Layout>
