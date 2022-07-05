@@ -15,7 +15,7 @@ const Form = () => {
     setFormState('loading')
 
     const formData = new FormData(e.target)
-    const formDataEntries = Array.from(formData, ([key, value]) => [
+    const formValues = Array.from(formData, ([key, value]) => [
       key,
       typeof value === 'string' ? value : value.name,
     ])
@@ -23,7 +23,7 @@ const Form = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formDataEntries).toString(),
+      body: new URLSearchParams(formValues).toString(),
     })
       .then((response) => {
         if (response.ok) {
@@ -47,6 +47,7 @@ const Form = () => {
       name={formName}
       data-netlify="true"
       onSubmit={handleFormSubmission}
+      action="/"
     >
       {formState !== ('success' || 'error') && (
         <>
